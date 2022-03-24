@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your search result</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Your Search Result : </h1>
+    <table>
+        <tr>
+            <th scope="col" style="width: 5%;">Thumbnail</th>
+            <th scope="col" style="width: 15%;">Tv Show Name</th>
+            <th scope="col" style="width: 15%;">Genre</th>
+            <th scope="col" style="width: 5%;">Language</th>
+            <th scope="col" style="width: 60%;">Summary</th>
+            <th scope="col" style="width: 5%;">Rating</th>
+        </tr>
+        <tr data-th-each="s:${showList}">
+            <td><img data-th-src="${s.image}" alt="" width="100" height="150"></td>
+            <td data-th-text="${s.showName}"></td>
+            <td><span data-th-each="g:${s.genre}" data-th-text="${g}+','"></span></td>
+            <td data-th-text="${s.language}"></td>
+            <td><div data-th-utext="${s.summary}"></div></td>
+            <td data-th-text="${s.averageRating}"></td>
+        </tr>
+    </table>
+</body>
+</html>
